@@ -1,9 +1,9 @@
-from endpoints.list_users_endpoint import ListUsersApi
-from endpoints.login_endpoint import LoginApi 
-from endpoints.register_endpoint import RegisterApi
-from endpoints.forgot_password_endpoint import ForgotPasswordApi
-from endpoints.reset_password_endpoint import ResetPasswordApi
-from endpoints.health_check_endpoint import HealthCheckApi
+from resources.list_user import ListUsersApi
+from resources.login_user import LoginApi 
+from resources.register_user import RegisterApi
+from resources.forgot_password import ForgotPasswordApi
+from resources.reset_password import ResetPasswordApi
+from resources.healt_check import HealthCheckApi
 
 
 def initialize_routes(api): 

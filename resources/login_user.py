@@ -3,7 +3,7 @@ import jwt
 import os
 from flask import request, jsonify
 from flask_restful import Resource
-from resources.db import get_db
+from db.db import get_db
 from utils.hash_password import decode_hash
 from utils.exceptions import LoginError, InternalServerError
 

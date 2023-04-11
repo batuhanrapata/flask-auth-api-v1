@@ -4,7 +4,7 @@ from bson import ObjectId
 from functools import wraps
 from flask import jsonify, request
 from flask_restful import Resource
-from resources.db import get_db
+from db.db import get_db
 from utils.exceptions import ListUsersError, InternalServerError
 
 

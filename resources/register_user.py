@@ -3,7 +3,7 @@ import json
 import re
 from flask import request,jsonify
 from flask_restful import Resource
-from resources.db import get_db
+from db.db import get_db
 from utils.hash_password import hash_password 
 from utils.exceptions import RegisterError, InternalServerError
 
@@ -22,8 +22,11 @@ class RegisterApi(Resource):
             email = req['email']
             password = hash_password(password)
             uname = col.find_one({'username': username})
+            mail_exist=col.find_one({'email':email})
             if uname:
                 return jsonify({'message':'Username already exists'})
+            elif mail_exist:
+                return jsonify({'message':'Email already exists'})
             elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
                 return jsonify({'message':'Invalid email'})
             elif not re.match(r'[A-Za-z0-9@#$%^&+=]{8,}', dummy):
